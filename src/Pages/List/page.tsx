@@ -1,32 +1,16 @@
-// src/App.tsx
-import React, { useState } from 'react';
 import Task from '../../components/Task';
+import { TaskHooks } from '../../hooks/TaskHooks';
 
 
 export default function List() {
-    const [inputValue, setInputValue] = useState<string>('');
-    const [tasks, setTasks] = useState<string[]>([]);
-    
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInputValue(e.target.value);
-    };
-    
-    const handleAddTask = () => {
-        if (inputValue.trim() !== '') {
-            setTasks([...tasks, inputValue]);
-            setInputValue('');
-        }
-    };
-
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === 'Enter' && !e.nativeEvent.isComposing) {
-            handleAddTask();
-        }
-    };
-
-    const handleRemoveTask = (index: number) => {
-        setTasks(tasks.filter((_, i) => i !== index));
-    };
+    const {
+        inputValue,
+        tasks,
+        handleInputChange,
+        handleAddTask,
+        handleKeyDown,
+        handleRemoveTask
+    } = TaskHooks();
     
     return (
         <section style={{ padding: '24px' }}>
