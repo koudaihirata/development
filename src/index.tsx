@@ -2,18 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import Task from './components/Task';
+import List from './Pages/List';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <section style={{padding:'24px'}}>
-      <h2>リスト</h2>
-      <input type="text" />
-      <button>追加</button>
-    </section>
+    <List/>
   </React.StrictMode>
 );
 
