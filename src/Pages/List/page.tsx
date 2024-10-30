@@ -1,6 +1,6 @@
 // src/App.tsx
 import React, { useState } from 'react';
-import Task from '../components/Task';
+import Task from '../../components/Task';
 
 
 export default function List() {
