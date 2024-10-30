@@ -9,7 +9,11 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Task/>
+    <section style={{padding:'24px'}}>
+      <h2>リスト</h2>
+      <input type="text" />
+      <button>追加</button>
+    </section>
   </React.StrictMode>
 );
 
