@@ -3,6 +3,7 @@
 type task = {
     task: string
     onRemove: () => void;
+    onAdd: () => void;
 }
 
 export default function Task(props: task) {
@@ -11,7 +12,7 @@ export default function Task(props: task) {
             <section style={{width:'300px',height:'150px',border:'1px solid #000'}}>
                 <h3>{props.task}</h3>
                 <div>
-                    <button>
+                    <button onClick={props.onAdd}>
                         カバンに入れた
                     </button>
                     <button onClick={props.onRemove}>

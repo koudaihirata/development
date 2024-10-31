@@ -3,6 +3,7 @@ import { useState } from 'react';
 export function TaskHooks() {
     const [inputValue, setInputValue] = useState<string>('');
     const [tasks, setTasks] = useState<string[]>([]);
+    const [bagItems, setBagItems] = useState<string[]>([]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value);
@@ -10,7 +11,7 @@ export function TaskHooks() {
 
     const handleAddTask = () => {
         if (inputValue.trim() !== '') {
-            setTasks([...tasks, inputValue]);
+            setTasks((prev)=>[...prev, inputValue]);
             setInputValue('');
         }
     };
@@ -25,12 +26,19 @@ export function TaskHooks() {
         setTasks(tasks.filter((_, i) => i !== index));
     };
 
+    const handleAddBag = (index: number) => {
+        setBagItems((prev) => [...prev, tasks[index]]);
+        setTasks(tasks.filter((_, i) => i !== index));
+    };
+
     return {
         inputValue,
         tasks,
+        bagItems,
         handleInputChange,
         handleAddTask,
         handleKeyDown,
         handleRemoveTask,
+        handleAddBag,
     };
 }
