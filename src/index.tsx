@@ -2,14 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+
 import List from './Pages/List/page';
 import Weather from './components/Weather';
+import Btn from './components/Btn';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+  <Btn/>
     <List/>
     <Weather/>
   </React.StrictMode>
