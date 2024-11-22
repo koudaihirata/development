@@ -4,12 +4,14 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import List from './Pages/List/page';
 import Weather from './components/Weather';
+import Schedule from './components/Schedule';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <Schedule/>
     <List/>
     <Weather/>
   </React.StrictMode>
