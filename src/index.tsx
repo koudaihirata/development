@@ -5,14 +5,17 @@ import reportWebVitals from './reportWebVitals';
 
 import List from './Pages/List/page';
 import Weather from './components/Weather';
-import Btn from './components/Btn';
+import Btn from './components/Btn/Btn';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-  <Btn/>
+  <Btn label="完了" />
+  <Btn label="パッング完了" />
+  <Btn label="テンプレートから選ぶ" />
+
     <List/>
     <Weather/>
   </React.StrictMode>
