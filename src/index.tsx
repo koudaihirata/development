@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import List from './Pages/List/page';
-import Weather from './components/Weather';
+import Weather from './components/Weathr/Weather';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
