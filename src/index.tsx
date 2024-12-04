@@ -4,12 +4,15 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 import List from './Pages/List/page';
 import Weather from './components/Weather';
+import Iconbox from './Iconbox/iconbox';
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <Iconbox/>
     <List/>
     <Weather/>
   </React.StrictMode>
