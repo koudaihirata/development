@@ -8,7 +8,9 @@ export default function Iconbox(){
             <p className={styles.prepare}>準備中</p>
             <div className={styles.rect}>
                 <p className={styles.rest}>残り　個</p>
-                <img src={plus} alt="プラス" />
+                <a href="">
+                    <img src={plus} alt="プラス" />
+                </a>
             </div>
         </div>
         </>
