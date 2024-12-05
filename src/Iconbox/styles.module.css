@@ -1,6 +1,3 @@
-html{
-    font-size: 62.5%;
-}
 .prepare{
     background-color: #FFC66F;
     border: #FFC66F;
@@ -38,7 +35,7 @@ html{
     margin-top: 70px;
     position: relative;
 }
-img{
+.plus{
     background-color: #F9A195;
     border: solid 0.5px #FFFFFF;
     text-align: center;

@@ -1,5 +1,4 @@
 import styles from './styles.module.css'
-import plus from '../img/plus.svg'
 
 export default function Iconbox(){
     return(
@@ -8,8 +7,8 @@ export default function Iconbox(){
             <p className={styles.prepare}>準備中</p>
             <div className={styles.rect}>
                 <p className={styles.rest}>残り　個</p>
-                <a href="">
-                    <img src={plus} alt="プラス" />
+                <a href="#">
+                    <img className={styles.plus} src={"/img/plus.svg"} alt="プラス" />
                 </a>
             </div>
         </div>

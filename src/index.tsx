@@ -13,8 +13,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Iconbox/>
     <Schedule plase='大阪' day='12/16' lowtemperature='18°' maxtemperature='23°'/>
+    <Iconbox />
     <Btn label="完了" />
     <Btn label="パッング完了" />
     <Btn label="テンプレートから選ぶ" />
