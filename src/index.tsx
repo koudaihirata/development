@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import List from './Pages/List/page';
+import Btn from './components/Btn/Btn';
 import Weather from './components/Weathr/Weather';
 
 const root = ReactDOM.createRoot(
@@ -10,6 +11,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+  <Btn label="完了" />
+  <Btn label="パッング完了" />
+  <Btn label="テンプレートから選ぶ" />
+
     <List/>
     <Weather/>
   </React.StrictMode>
