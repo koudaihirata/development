@@ -1,0 +1,62 @@
+html{
+    font-size: 62.5%;
+}
+.prepare{
+    background-color: #FFC66F;
+    border: #FFC66F;
+    color: #84521D;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 45px;
+    border-radius: 30px;
+    margin-left: 30px;
+    font-family: "A P-OTF Bunkyu Gothic Pr6N",sans-serif;
+    position: absolute;
+    top: -35px;
+    right: 70px;
+}
+.rest{
+    font-family: "A P-OTF Bunkyu Gothic Pr6N",sans-serif;
+    color: #84521D;
+    font-size: 1.5rem;
+    margin-left: 30px;
+    position: absolute;
+    top: -8px;
+    right: 108px;
+}
+.boxWrap{
+    width: 257px;
+    height: 381px;
+    border: solid 2px #FFC66F;
+    border-radius: 25px;
+    box-shadow: -3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: rgba(255, 198, 111, 0.50);
+    margin-left: 30px;
+    margin-top: 70px;
+    position: relative;
+}
+img{
+    background-color: #F9A195;
+    border: solid 0.5px #FFFFFF;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    padding: 5px;
+    position: absolute;
+    top: 8px;
+    right: 20px;
+}
+.rect{
+    width: 257px;
+    height: 43px;
+    background-color: #FFC66F;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25) inset;
+    border-radius: 0px 0px 25px 25px;
+    position: absolute;
+    top: 339px;
+    left:0px;
+}
