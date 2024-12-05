@@ -1,5 +1,5 @@
-import { env } from 'process';
 import { useEffect } from 'react';
+import styles from './styles.module.css';
 
 interface Forecast {
   dt_txt: string;
@@ -8,7 +8,6 @@ interface Forecast {
   };
   weather: {
     description: string;
-    // icon: string;
   }[];
   city: {
     name: string;
@@ -47,7 +46,8 @@ export default function Weather() {
 
     return (
         <>
-
+            <p className={styles.aaa}>天気コンポーネント</p>
+            <img src="" alt="" />
         </>
     );
 }
