@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import List from './Pages/List/page';
-import Weather from './components/Weather';
 import Iconbox from './Iconbox/iconbox';
-
+import Schedule from './components/Schedule/Schedule';
+import Btn from './components/Btn/Btn';
+import Weather from './components/Weathr/Weather';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -13,6 +14,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Iconbox/>
+    <Schedule plase='大阪' day='12/16' lowtemperature='18°' maxtemperature='23°'/>
+    <Btn label="完了" />
+    <Btn label="パッング完了" />
+    <Btn label="テンプレートから選ぶ" />
+
     <List/>
     <Weather/>
   </React.StrictMode>
