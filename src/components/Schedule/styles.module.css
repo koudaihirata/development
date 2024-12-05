@@ -1,6 +1,6 @@
 .prefecture{
     color: #84521D;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-family: "A P-OTF A1Gothic Std",sans-serif;
     padding-right: 15px;
     padding-left: 10px;
@@ -8,7 +8,7 @@
 }
 .date{
     color: #84521D;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
     font-family: "A P-OTF A1Gothic Std",sans-serif;
     padding-left: 15px;
 }
@@ -38,7 +38,6 @@
     height: 98px;
     border: #FFC87C 1px solid;
     border-radius: 10px;
-    margin-left: 30px;
     margin-top: 30px;
     background-color: #fff;
 }

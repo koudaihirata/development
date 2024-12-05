@@ -4,8 +4,13 @@
     background-image: url(/public/bg.svg);
 }
 
-.navWrap{
-    width: 85%;
+.elementBox{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.navWrap {
+    width: 90%;
     height: 30px;
     margin: 0 auto;
     padding-top: 24px;
@@ -19,4 +24,35 @@
     height: 32px;
     font-size: 3.2rem;
     color: #F9A195;
+}
+
+.scheduleWrap {
+    width: 100%;
+    margin-top: 32px;
+    display: flex;
+    gap: 20px;
+    overflow: auto;
+}
+.scheduleWrap::-webkit-scrollbar {
+    height: 0;
+}
+
+.PackingWrap {
+    margin-top: 64px;
+    display: flex;
+}
+
+.bagsBox{
+    height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.BtnWrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
 }
