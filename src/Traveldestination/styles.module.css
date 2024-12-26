@@ -1,0 +1,195 @@
+.travelWrap{
+    font-family: "A P-OTF Bunkyu Gothic Pr6N",sans-serif;
+    background-color: #FFFAEB;
+    width: 397px;
+    height: 844px;
+    position: relative;
+}
+.title{
+    font-size: 24px;
+    color: #84521D;
+    text-align: center;
+    font-weight: 600;
+    padding-top: 40px;
+}
+.departureWrap{
+    display: flex;
+    padding-top: 84px;
+    padding-left: 40px;
+}
+.departure{
+    font-size: 16px;
+    color: #84521D;
+    font-weight: 600;
+    padding-top: 10px;
+    padding-right: 30px;
+}
+.prefectures{
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(132, 82, 29, 0.19);
+    display: block;
+    width: 226px;
+    height: 48px;
+    background-color: #FFF6E5;
+    border-radius: 61px;
+}
+.prefectures::before{
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 8px 5px 0 10px;
+    background-size: contain;
+    background: url(/public/img/position.svg) no-repeat;
+}
+.arrivalWrap{
+    display: flex;
+}
+.arrival{
+    font-size: 16px;
+    color: #84521D;
+    font-weight: 600;
+    position: absolute;
+    top: 280px;
+    left: 40px;
+}
+.spot{
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(132, 82, 29, 0.19);
+    display: block;
+    width: 226px;
+    height: 48px;
+    background-color: #FFF6E5;
+    border-radius: 61px;
+    position: absolute;
+    left: 100px;
+    top: 270px;
+}
+.spot::before{
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 8px 5px 0 10px;
+    background-size: contain;
+    background: url(/public/img/position.svg) no-repeat;
+}
+.traveldayWrap{
+    display: flex;
+}
+.travelday{
+    font-size: 16px;
+    color: #84521D;
+    font-weight: 600;
+    position: absolute;
+    top: 360px;
+    left: 34px;
+}
+.arrow{
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(132, 82, 29, 0.19);
+    display: block;
+    width: 226px;
+    height: 48px;
+    background-color: #FFF6E5;
+    border-radius: 61px;
+    position: absolute;
+    left: 100px;
+    top: 350px;
+}
+.arrow::before
+{
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 8px 5px 0 10px;
+    background-size: contain;
+    background: url(/public/img/calendar.svg) no-repeat;
+}
+.peopleWrap{
+    display: flex;
+}
+.people{
+    font-size: 16px;
+    color: #84521D;
+    font-weight: 600;
+    position: absolute;
+    top: 450px;
+    left: 38px;
+}
+.peoplecolumn{
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(132, 82, 29, 0.19);
+    display: block;
+    width: 226px;
+    height: 48px;
+    background-color: #FFF6E5;
+    border-radius: 61px;
+    position: absolute;
+    top: 440px;
+    left: 100px;
+}
+.peoplecolumn::before{
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 12px 5px 0 10px;
+    background-size: contain;
+    background: url(/public/img/people.svg) no-repeat;
+}
+.memoWrap{
+    display: flex;
+}
+.memo{
+    font-size: 16px;
+    color: #84521D;
+    font-weight: 600;
+    position: absolute;
+    top: 540px;
+    left: 38px;
+}
+.memocolumn{
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(132, 82, 29, 0.19);
+    display: block;
+    width: 226px;
+    height: 48px;
+    background-color: #FFF6E5;
+    border-radius: 61px;
+    position: absolute;
+    top: 530px;
+    left: 100px;
+}
+.memocolumn::before{
+    content: "";
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    margin: 8px 5px 0 10px;
+    background-size: contain;
+    background: url(/public/img/note.svg) no-repeat;
+}
+.decision{
+    display: inline-block;
+    padding:2px 60px;
+    margin-left: 110px;
+    background-color: #FCE7DE;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    top: 640px;
+}
+.decision:hover{
+    background-color: #F9A195;
+}
