@@ -42,12 +42,16 @@
     display: flex;
 }
 
-.bagsBox{
+.bagsBox {
     height: 45vh;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
+}
+.bagsBox > img {
+    transform: scale(.8);
+    z-index: 0;
 }
 
 .BtnWrap{
