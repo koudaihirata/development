@@ -92,9 +92,9 @@ export default function IconBox({
     return (
         <div className={styles.boxWrap}>
             <p className={styles.prepare}>準備中</p>
-            <div className={styles.iconBox} id='IconBox'>
-            </div>
+            <div className={styles.iconBox} id='IconBox'></div>
             <div className={styles.rect}>
+                <div className={styles.NullPlus}></div>
                 <p className={styles.rest}>残り {iconCount} 個</p>
                 <button className={styles.plus} onClick={addIcon}>
                     <img src={"/img/plus.svg"} alt="プラス" />

@@ -1,3 +1,13 @@
+.boxWrap{
+    width: 70%;
+    height: 100%;
+    border: solid 2px #FFC66F;
+    border-radius: 24px;
+    box-shadow: -3px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    background: rgba(255, 198, 111, 0.50);
+    position: relative;
+}
+
 .prepare{
     background-color: #FFC66F;
     border: #FFC66F;
@@ -15,59 +25,21 @@
     top: -35px;
     right: 70px;
 }
-.rest{
-    font-family: "A P-OTF Bunkyu Gothic Pr6N",sans-serif;
-    color: #84521D;
-    font-size: 1.5rem;
-    margin-left: 30px;
-    position: absolute;
-    top: -8px;
-    right: 108px;
-}
-.boxWrap{
-    width: 257px;
-    height: 381px;
-    border: solid 2px #FFC66F;
-    border-radius: 25px;
-    box-shadow: -3px 4px 4px 0px rgba(0, 0, 0, 0.25);
-    background: rgba(255, 198, 111, 0.50);
-    /* margin-left: 30px; */
-    /* margin-top: 70px; */
-    position: relative;
-}
-.plus{
-    background-color: #F9A195;
-    border: solid 0.5px #FFFFFF;
-    text-align: center;
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-    padding: 5px;
-    position: absolute;
-    top: 8px;
-    right: 20px;
-}
-.rect{
-    width: 257px;
-    height: 43px;
-    background-color: #FFC66F;
-    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25) inset;
-    border-radius: 0px 0px 25px 25px;
-    position: absolute;
-    top: 339px;
-    left:0px;
-}
-
 
 .iconBox {
-    width: 80%;
-    height: 75%;
-    margin: 32px auto;
-    padding-bottom: 8px;
+    width: 95%;
+    height: 85%;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    justify-content: space-around;
+    gap: 16px;
+    /* アイコンをスクロールできるようにするとカバンにもっていけなくなる */
     /* overflow: auto; */
+}
+
+.iconBox::-webkit-scrollbar {
+    height: 0;
 }
 
 .icon {
@@ -77,4 +49,38 @@
     border-radius: 6px;
     box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.25);
     cursor: grab;
+    margin-top: 32px;
+}
+
+.rect{
+    width: 100%;
+    height: 15%;
+    background-color: #FFC66F;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.25) inset;
+    border-radius: 0px 0px 22px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.rest{
+    font-family: "A P-OTF Bunkyu Gothic Pr6N",sans-serif;
+    color: #84521D;
+    font-size: 1.5rem;
+    margin: 0;
+}
+
+.plus{
+    background-color: #F9A195;
+    border: solid 0.5px #FFFFFF;
+    text-align: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.NullPlus {
+    width: 28px;
+    height: 28px;
 }
