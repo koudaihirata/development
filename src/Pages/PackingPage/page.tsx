@@ -14,7 +14,7 @@ export default function PackingPage() {
         <div className={styles.bg}>
             <div className={styles.elementBox}>
                 <div className={styles.navWrap}>
-                    <img src="/img/friend.png" alt="フレンドアイコン" />
+                    <h2><img src="/img/friend.png" alt="フレンドアイコン" /></h2>
                     <FontAwesomeIcon icon={faGear} className={styles.FontA} />
                 </div>
                 <div className={styles.scheduleWrap}>
