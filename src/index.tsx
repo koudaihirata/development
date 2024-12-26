@@ -2,16 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import List from './Pages/List/page';
-import Weather from './components/Weathr/Weather';
+import PackingPage from './Pages/PackingPage/page';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <List/>
-    <Weather/>
+    <main>
+      <section>
+        <PackingPage />
+      </section>
+    </main>
   </React.StrictMode>
 );
 
