@@ -10,11 +10,20 @@ export default function IconBox({
     const [position, setPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
     const dragItemRef = useRef<HTMLDivElement | null>(null);
     const [iconCount, setIconCount] = useState(0);
+    const [modalToggle, setModalToggle] = useState<boolean>(false);
 
     const handleMouseDown = (event: MouseEvent, element: HTMLDivElement) => {
         setIsDragging(true);
         setPosition({ x: event.clientX, y: event.clientY });
         dragItemRef.current = element;
+    };
+
+    const openModal = () => {
+        setModalToggle(true);
+    };
+
+    const closeModal = () => {
+        setModalToggle(false);
     };
     
     const addIcon = () => {
@@ -27,6 +36,7 @@ export default function IconBox({
             newIcon.onmousedown = (event) => handleMouseDown(event as MouseEvent, newIcon);
             iconBox.appendChild(newIcon);
             setIconCount((prev) => prev + 1);
+            setModalToggle(false);
         }
     };
     
@@ -90,16 +100,29 @@ export default function IconBox({
     }, [isDragging, position, bagRefs]);
 
     return (
-        <div className={styles.boxWrap}>
-            <p className={styles.prepare}>準備中</p>
-            <div className={styles.iconBox} id='IconBox'></div>
-            <div className={styles.rect}>
-                <div className={styles.NullPlus}></div>
-                <p className={styles.rest}>残り {iconCount} 個</p>
-                <button className={styles.plus} onClick={addIcon}>
-                    <img src={"/img/plus.svg"} alt="プラス" />
-                </button>
+        <>
+            <div className={styles.boxWrap}>
+                <p className={styles.prepare}>準備中</p>
+                <div className={styles.iconBox} id='IconBox'></div>
+                <div className={styles.rect}>
+                    <div className={styles.NullPlus}></div>
+                    <p className={styles.rest}>残り {iconCount} 個</p>
+                    <button className={styles.plus} onClick={openModal}>
+                        <img src={"/img/plus.svg"} alt="プラス" />
+                    </button>
+                </div>
             </div>
-        </div>
+            {modalToggle && (
+                <div className={styles.modalOverlay}>
+                    <div className={styles.modal}>
+                        <button className={styles.modalFalse} onClick={closeModal}>
+                            <img src={"/img/plus.svg"} alt="プラス" />
+                        </button>
+                        <p>登録</p>
+                        <button onClick={addIcon}>追加</button>
+                    </div>
+                </div>
+            )}
+        </>
     );
 }
