@@ -78,7 +78,9 @@
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .NullPlus {
@@ -99,10 +101,12 @@
     justify-content: center;
     align-items: center;
     z-index: 1000;
+
 }
 
 .modal {
     width: 70%;
+    max-width: 300px;
     background: white;
     padding: 16px;
     border-radius: 8px;
@@ -118,7 +122,9 @@
     width: 28px;
     height: 28px;
     border-radius: 50%;
-    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transform: rotate(45deg);
     position: absolute;
     top: -12px;
@@ -126,9 +132,162 @@
 }
 
 .modal > p {
-    font-size: 24px;
-    font-family: 'A P-OTF Bunkyu Gothic Pr6N';
-    color: #84521D;
+    font-size: 2.4rem;
     margin: 0;
     text-align: center;
+}
+
+.modalElement {
+    margin-top: 16px;
+}
+
+.modalGenreWrap {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.modalImgWrap {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+
+    > img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .modalImgBtn {
+        background-color: #F9A195;
+        border: solid 5px #FFFFFF;
+        text-align: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        bottom: -12px;
+        right: -12px;
+
+        > img {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.modalGenreText {
+
+    > input {
+        border: none;
+        border-bottom: 1px solid #84521D;
+        outline:none
+    }
+}
+
+.modalRegistrationWrap {
+    margin-top: 24px;
+}
+
+.modalRegistrationTitle {
+    width: 100%;
+    border-bottom: 1px solid #84521D;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > p {
+        margin: 0;
+        font-size: 1.6rem;
+        text-align: center;
+    }
+    .modalRegistrationBtn {
+        background-color: #F9A195;
+        border: solid 0.5px #FFFFFF;
+        text-align: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        > img {
+            transform: scale(.8);
+        }
+    }
+}
+
+.modalRegistrationMain {
+    width: 100%;
+    height: 200px;
+    overflow: auto;
+}
+
+.modalRegistrationThing {
+    width: 100%;
+    height: 48px;
+    border-bottom: 1px solid rgba(132, 82, 29, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    > h3 {
+        font-size: 1.4rem;
+        width: 60%;
+        margin: 0;
+        text-align: center;
+        font-weight: bold;
+    }
+    .QuantityBox {
+        display: flex;
+        gap: 8px;
+
+        .QuantityWrap {
+            display: flex;
+            align-items: center;
+
+            .plus {
+                transform: scale(.6);
+            }
+            .minus {
+                background-color: #F9A195;
+                border: solid 0.5px #FFFFFF;
+                text-align: center;
+                width: 28px;
+                height: 28px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transform: scale(.6);
+            }
+            .square {
+                width: 24px;
+                height: 24px;
+                border: 1px solid #84521D;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                p {
+                    font-size: 1.4rem;
+                }
+            }
+        }
+        > p {
+            font-size: 1.4rem;
+            padding-right: 8px;
+        }
+    }
+}
+
+.line {
+    width: 100%;
+    height: 2px;
+    background-color: #84521D;
+    margin: 16px 0;
 }

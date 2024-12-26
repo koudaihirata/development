@@ -11,19 +11,28 @@ export default function IconBox({
     const dragItemRef = useRef<HTMLDivElement | null>(null);
     const [iconCount, setIconCount] = useState(0);
     const [modalToggle, setModalToggle] = useState<boolean>(false);
+    const [registrationQuantity, setRegistrationQuantity] = useState(1);
+
+    const openModal = () => {
+        setModalToggle(true);
+    };
+    const closeModal = () => {
+        setModalToggle(false);
+    };
+
+    const addQuantity = () => {
+        setRegistrationQuantity((prev) => prev + 1);
+    };
+    const reduceQuantity = () => {
+        if (registrationQuantity > 1) {
+            setRegistrationQuantity((prev) => prev - 1);
+        }
+    };
 
     const handleMouseDown = (event: MouseEvent, element: HTMLDivElement) => {
         setIsDragging(true);
         setPosition({ x: event.clientX, y: event.clientY });
         dragItemRef.current = element;
-    };
-
-    const openModal = () => {
-        setModalToggle(true);
-    };
-
-    const closeModal = () => {
-        setModalToggle(false);
     };
     
     const addIcon = () => {
@@ -114,13 +123,57 @@ export default function IconBox({
             </div>
             {modalToggle && (
                 <div className={styles.modalOverlay}>
-                    <div className={styles.modal}>
-                        <button className={styles.modalFalse} onClick={closeModal}>
-                            <img src={"/img/plus.svg"} alt="プラス" />
-                        </button>
+                    <section className={styles.modal}>
                         <p>登録</p>
-                        <button onClick={addIcon}>追加</button>
-                    </div>
+                        <button className={styles.modalFalse} onClick={closeModal}>
+                            <img src={"/img/plus.svg"} alt="キャンセル" />
+                        </button>
+                        <div className={styles.modalElement}>
+                            <div className={styles.modalGenreWrap}>
+                                <div className={styles.modalImgWrap}>
+                                    <img src="/img/bagkun.png" alt="アイコンイメージ" />
+                                    <button className={styles.modalImgBtn}>
+                                        <img src={"/img/plus.svg"} alt="プラス" />
+                                    </button>
+                                </div>
+                                <div className={styles.modalGenreText}>
+                                    <p>ジャンル名</p>
+                                    <input type="text" placeholder='入力してください' />
+                                </div>
+                            </div>
+                            <div className={styles.modalRegistrationWrap}>
+                                <div className={styles.modalRegistrationTitle}>
+                                    <div className={styles.NullPlus}></div>
+                                    <p>持ち物登録</p>
+                                    <button className={styles.modalRegistrationBtn}>
+                                        <img src={"/img/plus.svg"} alt="プラス" />
+                                    </button>
+                                </div>
+                                <div className={styles.modalRegistrationMain}>
+                                    <div className={styles.modalRegistrationThing}>
+                                        <h3>モバイルバッテリー</h3>
+                                        <div className={styles.QuantityBox}>
+                                            <div className={styles.QuantityWrap}>
+                                                <button className={styles.plus} onClick={addQuantity}>
+                                                    <img src={"/img/plus.svg"} alt="プラス" />
+                                                </button>
+                                                <div className={styles.square}>
+                                                    <p>{registrationQuantity}</p>
+                                                </div>
+                                                <button className={styles.minus} onClick={reduceQuantity}>
+                                                    <img src={"/img/minus.svg"} alt="マイナス" />
+                                                </button>
+                                            </div>
+                                            <p>コ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button onClick={addIcon}>登録</button>
+                        <div className={styles.line}></div>
+                        <button>テンプレートを追加</button>
+                    </section>
                 </div>
             )}
         </>
