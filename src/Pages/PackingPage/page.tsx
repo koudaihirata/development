@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from './styles.module.css'
 import { faGear } from '@fortawesome/free-solid-svg-icons'
 import Schedule from '../../components/Schedule/Schedule'
-import IconBox from '../../Iconbox/iconbox'
+import IconBox from '../../components/Iconbox/iconbox'
 import Btn from '../../components/Btn/Btn'
 import { useState } from 'react';
 
@@ -13,14 +13,23 @@ export default function PackingPage() {
         setIcons(icons.filter((iconId) => iconId !== id));
     };
 
-    const handleDrop = (event: React.DragEvent<HTMLImageElement>) => {
+    const handleDrop = (event: React.DragEvent<HTMLImageElement>, bagId: number) => {
         event.preventDefault();
-        const id = parseInt(event.dataTransfer.getData('text/plain'));
-        removeIcon(id);
+        const iconId = parseInt(event.dataTransfer.getData('text'));
+        removeIcon(iconId);
+        event.currentTarget.style.border = '';
     };
 
     const handleDragOver = (event: React.DragEvent<HTMLImageElement>) => {
         event.preventDefault();
+    };
+
+    const handleDragEnter = (event: React.DragEvent<HTMLImageElement>) => {
+        event.currentTarget.style.border = '1px dashed #000';
+    };
+
+    const handleDragLeave = (event: React.DragEvent<HTMLImageElement>) => {
+        event.currentTarget.style.border = '';
     };
 
     return(
@@ -36,19 +45,23 @@ export default function PackingPage() {
                     <Schedule plase='北海道' day='1/2' lowtemperature='18°' maxtemperature='23°' weatherNum={3}/>
                 </div>
                 <div className={styles.PackingWrap}>
-                    <IconBox icons={icons} setIcons={setIcons} />
+                    <IconBox icons={icons} setIcons={setIcons}/>
                     <div className={styles.bagsBox}>
-                        <img
-                            src="/img/bag1.svg"
-                            alt="カバン"
-                            onDrop={handleDrop}
-                            onDragOver={handleDragOver}
+                        <img 
+                            src="/img/bag1.svg" 
+                            alt="カバン" 
+                            onDrop={(event) => handleDrop(event, 1)} 
+                            onDragOver={handleDragOver} 
+                            onDragEnter={handleDragEnter}
+                            onDragLeave={handleDragLeave}
                         />
-                        <img
-                            src="/img/bag2.svg"
-                            alt="カバン"
-                            onDrop={handleDrop}
-                            onDragOver={handleDragOver}
+                        <img 
+                            src="/img/bag2.svg" 
+                            alt="カバン" 
+                            onDrop={(event) => handleDrop(event, 2)} 
+                            onDragOver={handleDragOver} 
+                            onDragEnter={handleDragEnter}
+                            onDragLeave={handleDragLeave}
                         />
                     </div>
                 </div>
