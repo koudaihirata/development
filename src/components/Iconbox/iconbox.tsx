@@ -90,6 +90,7 @@ export default function IconBox({
                 img.style.width = '100%';
                 img.style.height = '80%';
                 img.style.objectFit = 'contain';
+                img.draggable = false;
                 // img 要素を newIcon に追加
                 newIcon.appendChild(img);
 
