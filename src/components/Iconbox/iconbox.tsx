@@ -11,8 +11,11 @@ export default function IconBox({
     const dragItemRef = useRef<HTMLDivElement | null>(null);
     const [iconCount, setIconCount] = useState(0);
     const [modalToggle, setModalToggle] = useState<boolean>(false);
-    const [registrationQuantity, setRegistrationQuantity] = useState(1);
+    const [things, setThings] = useState<{id: number; name: string; quantity: number}[]>([]);
+    const [iconName, setIconName] = useState('');
+    const [iconImage, setIconImage] = useState<string>('/img/bagkun.png');
 
+    // モーダルウィンドウを表示非表示
     const openModal = () => {
         setModalToggle(true);
     };
@@ -20,13 +23,49 @@ export default function IconBox({
         setModalToggle(false);
     };
 
-    const addQuantity = () => {
-        setRegistrationQuantity((prev) => prev + 1);
-    };
-    const reduceQuantity = () => {
-        if (registrationQuantity > 1) {
-            setRegistrationQuantity((prev) => prev - 1);
+    // アイコンの画像を変更する時に発火する関数
+    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (file) {
+            const imageUrl = URL.createObjectURL(file);
+            setIconImage(imageUrl);
         }
+    };      
+    // 新しいアイテムを追加する関数
+    const addThing = () => {
+        setThings((prev) => [
+        ...prev,
+        { id: Date.now(), name: '', quantity: 1 }
+        ]);
+    };
+    // アイテムの名前を変更するたびに発火する関数
+    const handleNameChange = (id: number, newName: string) => {
+        setThings((prev) =>
+        prev.map((thing) =>
+            thing.id === id
+            ? { ...thing, name: newName }
+            : thing
+        )
+        );
+    };
+    // 個数を増減させる関数
+    const increaseQuantity = (id: number) => {
+        setThings((prev) =>
+        prev.map((item) =>
+            item.id === id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+        );
+    };
+    const decreaseQuantity = (id: number) => {
+        setThings((prev) =>
+        prev.map((item) =>
+            item.id === id && item.quantity > 1
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+        );
     };
 
     const handleMouseDown = (event: MouseEvent, element: HTMLDivElement) => {
@@ -35,17 +74,50 @@ export default function IconBox({
         dragItemRef.current = element;
     };
     
+    // アイコンを増やす関数
     const addIcon = () => {
         const iconBox = document.getElementById('IconBox');
         if (iconBox) {
+            // 新しい div 要素を作成
             const newIcon = document.createElement('div');
-            const iconId = iconBox.children.length;
             newIcon.className = styles.icon;
-            newIcon.textContent = `アイコン ${iconId}`;
-            newIcon.onmousedown = (event) => handleMouseDown(event as MouseEvent, newIcon);
-            iconBox.appendChild(newIcon);
-            setIconCount((prev) => prev + 1);
-            setModalToggle(false);
+            // アイコン名が空の場合のエラーチェック
+            if (iconName !== '') {
+                // img 要素を作成
+                const img = document.createElement('img');
+                img.src = iconImage; // iconImage ステートに保存されている URL を設定
+                img.alt = iconName;
+                img.style.width = '100%';
+                img.style.height = '80%';
+                img.style.objectFit = 'contain';
+                // img 要素を newIcon に追加
+                newIcon.appendChild(img);
+
+                // アイコン名を div にテキストとして追加
+                const text = document.createElement('p');
+                text.textContent = iconName;
+                newIcon.appendChild(text);
+
+                // mousedown イベントを設定
+                newIcon.onmousedown = (event) => handleMouseDown(event as MouseEvent, newIcon);
+
+                // iconBox に newIcon を追加
+                iconBox.appendChild(newIcon);
+
+                // アイコン数を更新
+                setIconCount((prev) => prev + 1);
+
+                // モーダルを閉じる
+                setModalToggle(false);
+
+                // 入力欄をリセット
+                setIconName('');
+                 // デフォルト画像に戻す
+                setIconImage('/img/bagkun.png');
+            } else {
+                alert('アイコン名を入力してください');
+                return;
+            }
         }
     };
     
@@ -131,42 +203,50 @@ export default function IconBox({
                         <div className={styles.modalElement}>
                             <div className={styles.modalGenreWrap}>
                                 <div className={styles.modalImgWrap}>
-                                    <img src="/img/bagkun.png" alt="アイコンイメージ" />
-                                    <button className={styles.modalImgBtn}>
+                                    <img src={iconImage} alt="アイコンイメージ" />
+                                    <label htmlFor="IconImg" className={styles.modalImgBtn}>
                                         <img src={"/img/plus.svg"} alt="プラス" />
-                                    </button>
+                                        <input
+                                            type="file"
+                                            id='IconImg'
+                                            accept="image/*"
+                                            onChange={handleImageChange}
+                                        />
+                                    </label>
                                 </div>
                                 <div className={styles.modalGenreText}>
                                     <p>ジャンル名</p>
-                                    <input type="text" placeholder='入力してください' />
+                                    <input type="text" placeholder='入力してください' value={iconName} onChange={(e) => setIconName(e.target.value)} />
                                 </div>
                             </div>
                             <div className={styles.modalRegistrationWrap}>
                                 <div className={styles.modalRegistrationTitle}>
                                     <div className={styles.NullPlus}></div>
                                     <p>持ち物登録</p>
-                                    <button className={styles.modalRegistrationBtn}>
+                                    <button className={styles.modalRegistrationBtn} onClick={addThing}>
                                         <img src={"/img/plus.svg"} alt="プラス" />
                                     </button>
                                 </div>
                                 <div className={styles.modalRegistrationMain}>
-                                    <div className={styles.modalRegistrationThing}>
-                                        <h3>モバイルバッテリー</h3>
+                                {things.map((thing) => (
+                                    <div key={thing.id} className={styles.modalRegistrationThing}>
+                                        <input type="text" value={thing.name} placeholder='持ち物を入力して下さい' onChange={(e) => handleNameChange(thing.id, e.target.value)} />
                                         <div className={styles.QuantityBox}>
                                             <div className={styles.QuantityWrap}>
-                                                <button className={styles.plus} onClick={addQuantity}>
+                                                <button className={styles.plus} onClick={() => increaseQuantity(thing.id)}>
                                                     <img src={"/img/plus.svg"} alt="プラス" />
                                                 </button>
                                                 <div className={styles.square}>
-                                                    <p>{registrationQuantity}</p>
+                                                    <p>{thing.quantity}</p>
                                                 </div>
-                                                <button className={styles.minus} onClick={reduceQuantity}>
+                                                <button className={styles.minus} onClick={() => decreaseQuantity(thing.id)}>
                                                     <img src={"/img/minus.svg"} alt="マイナス" />
                                                 </button>
                                             </div>
                                             <p>コ</p>
                                         </div>
                                     </div>
+                                ))}
                                 </div>
                             </div>
                         </div>

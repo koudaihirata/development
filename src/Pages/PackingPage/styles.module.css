@@ -63,6 +63,7 @@
 .bagsBox > img {
     transform: scale(.8);
     z-index: 0;
+    transition: all .5s;
 }
 
 .BtnWrap{
