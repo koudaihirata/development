@@ -11,8 +11,9 @@ export default function IconBox({
     const dragItemRef = useRef<HTMLDivElement | null>(null);
     const [iconCount, setIconCount] = useState(0);
     const [modalToggle, setModalToggle] = useState<boolean>(false);
-    const [registrationQuantity, setRegistrationQuantity] = useState(1);
+    const [things, setThings] = useState<{id: number; name: string; quantity: number}[]>([]);
 
+    // モーダルウィンドウを表示非表示
     const openModal = () => {
         setModalToggle(true);
     };
@@ -20,13 +21,41 @@ export default function IconBox({
         setModalToggle(false);
     };
 
-    const addQuantity = () => {
-        setRegistrationQuantity((prev) => prev + 1);
+    // 新しいアイテムを追加する関数
+    const addThing = () => {
+        setThings((prev) => [
+        ...prev,
+        { id: Date.now(), name: '', quantity: 1 }
+        ]);
     };
-    const reduceQuantity = () => {
-        if (registrationQuantity > 1) {
-            setRegistrationQuantity((prev) => prev - 1);
-        }
+    // アイテムの名前を変更するたびに発火する関数
+    const handleNameChange = (id: number, newName: string) => {
+        setThings((prev) =>
+        prev.map((thing) =>
+            thing.id === id
+            ? { ...thing, name: newName }
+            : thing
+        )
+        );
+    };
+    // 個数を増減させる関数
+    const increaseQuantity = (id: number) => {
+        setThings((prev) =>
+        prev.map((item) =>
+            item.id === id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+        );
+    };
+    const decreaseQuantity = (id: number) => {
+        setThings((prev) =>
+        prev.map((item) =>
+            item.id === id && item.quantity > 1
+            ? { ...item, quantity: item.quantity - 1 }
+            : item
+        )
+        );
     };
 
     const handleMouseDown = (event: MouseEvent, element: HTMLDivElement) => {
@@ -145,28 +174,30 @@ export default function IconBox({
                                 <div className={styles.modalRegistrationTitle}>
                                     <div className={styles.NullPlus}></div>
                                     <p>持ち物登録</p>
-                                    <button className={styles.modalRegistrationBtn}>
+                                    <button className={styles.modalRegistrationBtn} onClick={addThing}>
                                         <img src={"/img/plus.svg"} alt="プラス" />
                                     </button>
                                 </div>
                                 <div className={styles.modalRegistrationMain}>
-                                    <div className={styles.modalRegistrationThing}>
-                                        <h3>モバイルバッテリー</h3>
+                                {things.map((thing) => (
+                                    <div key={thing.id} className={styles.modalRegistrationThing}>
+                                        <input type="text" value={thing.name} placeholder='持ち物を入力して下さい' onChange={(e) => handleNameChange(thing.id, e.target.value)} />
                                         <div className={styles.QuantityBox}>
                                             <div className={styles.QuantityWrap}>
-                                                <button className={styles.plus} onClick={addQuantity}>
+                                                <button className={styles.plus} onClick={() => increaseQuantity(thing.id)}>
                                                     <img src={"/img/plus.svg"} alt="プラス" />
                                                 </button>
                                                 <div className={styles.square}>
-                                                    <p>{registrationQuantity}</p>
+                                                    <p>{thing.quantity}</p>
                                                 </div>
-                                                <button className={styles.minus} onClick={reduceQuantity}>
+                                                <button className={styles.minus} onClick={() => decreaseQuantity(thing.id)}>
                                                     <img src={"/img/minus.svg"} alt="マイナス" />
                                                 </button>
                                             </div>
                                             <p>コ</p>
                                         </div>
                                     </div>
+                                ))}
                                 </div>
                             </div>
                         </div>

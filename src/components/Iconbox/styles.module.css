@@ -235,12 +235,15 @@
     align-items: center;
     justify-content: space-between;
 
-    > h3 {
+    > input {
         font-size: 1.4rem;
         width: 60%;
         margin: 0;
         text-align: center;
         font-weight: bold;
+        border: none;
+        outline:none;
+        color: #84521D;
     }
     .QuantityBox {
         display: flex;
