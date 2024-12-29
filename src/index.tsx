@@ -3,6 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import PackingPage from './Pages/PackingPage/page';
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
+import Bags from './Pages/Bags/page';
+
+const router = createBrowserRouter (
+  createRoutesFromElements(
+    <>
+      <Route path='/' element={<PackingPage />} />
+      <Route path='/bag/:id' element={<Bags />} />
+    </>
+  )
+)
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,7 +22,7 @@ root.render(
   <React.StrictMode>
     <main>
       <section>
-        <PackingPage />
+        <RouterProvider router={router} />
       </section>
     </main>
   </React.StrictMode>
