@@ -1,3 +1,4 @@
+import Btn from '../Btn/Btn';
 import styles from './styles.module.css';
 import { useState, useRef, useEffect } from 'react';
 
@@ -251,9 +252,17 @@ export default function IconBox({
                                 </div>
                             </div>
                         </div>
-                        <button onClick={addIcon}>登録</button>
+                        <div className={styles.IconBtnWrap}>
+                            <div onClick={addIcon}>
+                                <Btn label='登録' />
+                            </div>
+                        </div>
                         <div className={styles.line}></div>
-                        <button>テンプレートを追加</button>
+                        <div className={styles.IconBtnWrap}>
+                            <div onClick={addIcon}>
+                                <Btn label='テンプレートを追加' />
+                            </div>
+                        </div>
                     </section>
                 </div>
             )}
