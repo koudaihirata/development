@@ -1,5 +1,6 @@
 .bagDetailWrap {
     width: 90%;
+    max-width: 640px;
     height: 85vh;
     margin: 16px auto 0;
     background-color: #FFF6E5;
