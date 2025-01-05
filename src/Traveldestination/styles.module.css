@@ -14,167 +14,169 @@
 }
 .departureWrap{
     display: flex;
-    padding-top: 84px;
-    padding-left: 40px;
+    gap: 10px;
 }
 .departure{
     font-size: 16px;
     color: #84521D;
     font-weight: 600;
-    padding-top: 10px;
+    padding-top: 50px;
     padding-right: 30px;
+    padding-left: 40px;
+}
+.prefecturesPhoto{
+    position: absolute;
+    top: 170px;
+    left: 130px;
 }
 .prefectures{
     font-size: 20px;
     font-weight: 600;
-    color: rgba(132, 82, 29, 0.19);
+    color:#84521D;
     display: block;
     width: 226px;
     height: 48px;
     background-color: #FFF6E5;
     border-radius: 61px;
+    border: none;
+    margin-top: 56px;
+    text-align: center;
 }
-.prefectures::before{
-    content: "";
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    margin: 8px 5px 0 10px;
-    background-size: contain;
-    background: url(/public/img/position.svg) no-repeat;
+.prefectures::placeholder{
+    color: rgba(132, 82, 29, 0.19);
+
 }
 .arrivalWrap{
     display: flex;
+    gap: 10px;
+    padding-top: 24px;
 }
 .arrival{
     font-size: 16px;
     color: #84521D;
     font-weight: 600;
+    padding-left: 40px;
+    padding-right: 30px;
+}
+.spotPhoto{
     position: absolute;
-    top: 280px;
-    left: 40px;
+    top: 260px;
+    left: 130px;
 }
 .spot{
     font-size: 20px;
     font-weight: 600;
-    color: rgba(132, 82, 29, 0.19);
+    color: #84521D;
     display: block;
     width: 226px;
     height: 48px;
     background-color: #FFF6E5;
     border-radius: 61px;
-    position: absolute;
-    left: 100px;
-    top: 270px;
+    border: none;
+    margin-top: 8px;
+    text-align: center;
 }
-.spot::before{
-    content: "";
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    margin: 8px 5px 0 10px;
-    background-size: contain;
-    background: url(/public/img/position.svg) no-repeat;
+.spot::placeholder{
+    color: rgba(132, 82, 29, 0.19);
 }
 .traveldayWrap{
     display: flex;
+    gap: 10px;
+    padding-top: 24px;
 }
 .travelday{
     font-size: 16px;
     color: #84521D;
     font-weight: 600;
+    padding-left: 32px;
+    padding-right: 22px;
+}
+.arrowPhoto{
     position: absolute;
-    top: 360px;
-    left: 34px;
+    top: 350px;
+    left: 130px;
 }
 .arrow{
     font-size: 20px;
     font-weight: 600;
-    color: rgba(132, 82, 29, 0.19);
+    color: #84521D;
     display: block;
     width: 226px;
     height: 48px;
     background-color: #FFF6E5;
     border-radius: 61px;
-    position: absolute;
-    left: 100px;
-    top: 350px;
+    border: none;
+    margin-top: 8px;
+    text-align: center;
 }
-.arrow::before
-{
-    content: "";
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    margin: 8px 5px 0 10px;
-    background-size: contain;
-    background: url(/public/img/calendar.svg) no-repeat;
+.arrow::placeholder{
+    color: rgba(132, 82, 29, 0.19);
 }
 .peopleWrap{
     display: flex;
+    gap: 10px;
+    padding-top: 24px;
 }
 .people{
     font-size: 16px;
     color: #84521D;
     font-weight: 600;
+    padding-left: 40px;
+    padding-right: 30px;
+}
+.peoplecolumnPhoto{
     position: absolute;
-    top: 450px;
-    left: 38px;
+    top: 440px;
+    left: 135px;
 }
 .peoplecolumn{
     font-size: 20px;
     font-weight: 600;
-    color: rgba(132, 82, 29, 0.19);
+    color: #84521D;
     display: block;
     width: 226px;
     height: 48px;
     background-color: #FFF6E5;
     border-radius: 61px;
-    position: absolute;
-    top: 440px;
-    left: 100px;
+    border: none;
+    margin-top: 8px;
+    text-align: center;
 }
-.peoplecolumn::before{
-    content: "";
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    margin: 12px 5px 0 10px;
-    background-size: contain;
-    background: url(/public/img/people.svg) no-repeat;
+.peoplecolumn::placeholder{
+    color: rgba(132, 82, 29, 0.19);
 }
 .memoWrap{
     display: flex;
+    gap: 10px;
+    padding-top: 24px;
 }
 .memo{
     font-size: 16px;
     color: #84521D;
     font-weight: 600;
+    padding-left: 40px;
+    padding-right: 30px;
+}
+.memocolumnPhoto{
     position: absolute;
-    top: 540px;
-    left: 38px;
+    top: 520px;
+    left: 130px;
 }
 .memocolumn{
     font-size: 20px;
     font-weight: 600;
-    color: rgba(132, 82, 29, 0.19);
+    color: #84521D;
     display: block;
     width: 226px;
     height: 48px;
     background-color: #FFF6E5;
     border-radius: 61px;
-    position: absolute;
-    top: 530px;
-    left: 100px;
+    border: none;
+    margin-top: 8px;
+    text-align: center;
 }
-.memocolumn::before{
-    content: "";
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    margin: 8px 5px 0 10px;
-    background-size: contain;
-    background: url(/public/img/note.svg) no-repeat;
+.memocolumn::placeholder{
+    color: rgba(132, 82, 29, 0.19);
 }
 .decision{
     display: inline-block;
