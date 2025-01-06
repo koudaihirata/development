@@ -5,6 +5,7 @@ import Schedule from '../../components/Schedule/Schedule'
 import IconBox from '../../components/Iconbox/iconbox'
 import Btn from '../../components/Btn/Btn'
 import { useRef } from 'react';
+import { Link } from 'react-router-dom'
 
 export default function PackingPage() {
     const bag1Ref = useRef<HTMLImageElement>(null);
@@ -25,16 +26,20 @@ export default function PackingPage() {
                 <div className={styles.PackingWrap}>
                     <IconBox bagRefs={[bag1Ref, bag2Ref]} />
                     <div className={styles.bagsBox}>
-                        <img 
-                            ref={bag1Ref}
-                            src="/img/bag1.svg" 
-                            alt="カバン" 
-                        />
-                        <img 
-                            ref={bag2Ref}
-                            src="/img/bag2.svg" 
-                            alt="カバン" 
-                        />
+                        <Link to={'/bag/1'}>
+                            <img 
+                                ref={bag1Ref}
+                                src="/img/bag1.svg" 
+                                alt="カバン" 
+                            />
+                        </Link>
+                        <Link to={'/bag/2'}>
+                            <img 
+                                ref={bag2Ref}
+                                src="/img/bag2.svg" 
+                                alt="カバン" 
+                            />
+                        </Link>
                     </div>
                 </div>
                 <div className={styles.BtnWrap}>

@@ -309,3 +309,14 @@
     background-color: #84521D;
     margin: 16px 0;
 }
+
+.IconBtnWrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    > div {
+        display: inline-block;
+    }
+}
