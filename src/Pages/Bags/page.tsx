@@ -1,13 +1,16 @@
 import { Link, useParams } from "react-router-dom";
 import styles from './styles.module.css';
-
-interface Props {
-    id: string;
-}  
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 
 export default function Bags() {
-    const params = useParams<{id: string}>();
-    const id = params.id;
+    const { id } = useParams<{ id: string }>(); // /bag/:id
+    const bagId = Number(id);
+    
+    const bagList = useSelector((state: RootState) => state.icons.bagList);
+
+    // bagId に対応するアイコンだけ抽出
+    const iconsInThisBag = bagList.filter((item) => item.bagId === bagId);
 
     let URL = "";
     if (id === "1") {
@@ -18,48 +21,38 @@ export default function Bags() {
 
     return(
         <>
-            <Bag id={URL} />
-        </>
-    )
-}
-
-function Bag(props: Props) {
-    return(
-        <>
             <div className={styles.bagDetailWrap}>
                 <div className={styles.bagDetailTitle}>
                     <Link to={'/'}>
                         <img src="/img/ReturnArrow.svg" alt="戻る" />
                     </Link>
-                    <p className={styles.Title}>{props.id}</p>
+                    <p className={styles.Title}>{URL}</p>
                     <p className={styles.edit}>編集</p>
                 </div>
-                <div className={styles.bagMain}>
-                    <div className={styles.bagMainTitle}>
-                        <div className={styles.IconImg}>
-                            <img src="/img/bagkun.png" alt="アイコンイメージ" />
-                        </div>
-                        <p>お風呂セット</p>
+                {iconsInThisBag.length === 0 ? (
+                    <div className={styles.nullWrap}>
+                        <p className={styles.null}>まだ何も入っていません。</p>
                     </div>
-                    <div className={styles.bagThing}>
-                        <div>
-                            <p className={styles.ProductName}>シャンプー</p>
-                            <p className={styles.Quantity}>1 個</p>
+                ) : (
+                    iconsInThisBag.map((item) => (
+                        <div className={styles.bagMain} key={item.icon.id}>
+                            <div className={styles.bagMainTitle}>
+                                <div className={styles.IconImg}>
+                                    <img src={item.icon.iconImage} alt={item.icon.iconName} />
+                                </div>
+                                <p>{item.icon.iconName}</p>
+                            </div>
+                            {item.icon.things.map((thing) => (
+                                <div className={styles.bagThing} key={thing.id}>
+                                    <div>
+                                        <p className={styles.ProductName}>{thing.name}</p>
+                                        <p className={styles.Quantity}>{thing.quantity} 個</p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                    </div>
-                    <div className={styles.bagThing}>
-                        <div>
-                            <p className={styles.ProductName}>リンス</p>
-                            <p className={styles.Quantity}>1 個</p>
-                        </div>
-                    </div>
-                    <div className={styles.bagThing}>
-                        <div>
-                            <p className={styles.ProductName}>ボディーソープ</p>
-                            <p className={styles.Quantity}>1 個</p>
-                        </div>
-                    </div>
-                </div>
+                    ))
+                )}
             </div>
         </>
     )
