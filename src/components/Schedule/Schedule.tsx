@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from './styles.module.css'
+import Weather from '../Weathr/Weather';
 
 interface ScheduleProps{
     plase:string;
@@ -36,6 +37,7 @@ export default function Schedule(props:ScheduleProps) {
 
     return(
         <> 
+        <Weather />
         <div className={styles.rect}>
             <div className={styles.rect2}>
                 <div className={styles.rainImg}>

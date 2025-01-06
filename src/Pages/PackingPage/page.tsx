@@ -20,8 +20,6 @@ export default function PackingPage() {
                 </div>
                 <div className={styles.scheduleWrap}>
                     <Schedule plase='札幌市' day='12/31' lowtemperature='-1°' maxtemperature='8°' weatherNum={1}/>
-                    <Schedule plase='長万部' day='1/1' lowtemperature='-10°' maxtemperature='1°' weatherNum={2}/>
-                    <Schedule plase='北海道' day='1/2' lowtemperature='18°' maxtemperature='23°' weatherNum={3}/>
                 </div>
                 <div className={styles.PackingWrap}>
                     <IconBox bagRefs={[bag1Ref, bag2Ref]} />
