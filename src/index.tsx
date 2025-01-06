@@ -5,6 +5,8 @@ import reportWebVitals from './reportWebVitals';
 import PackingPage from './Pages/PackingPage/page';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import Bags from './Pages/Bags/page';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 
 const router = createBrowserRouter (
   createRoutesFromElements(
@@ -20,11 +22,13 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <main>
-      <section>
-        <RouterProvider router={router} />
-      </section>
-    </main>
+    <Provider store={store}>
+      <main>
+        <section>
+          <RouterProvider router={router} />
+        </section>
+      </main>      
+    </Provider>
   </React.StrictMode>
 );
 
