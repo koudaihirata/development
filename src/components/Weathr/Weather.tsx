@@ -15,12 +15,16 @@ interface Forecast {
   }
 }
 
-export default function Weather() {
-    const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
-    const city = 'Osaka,jp';
-    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
+type Props = {
+  city: string
+}
 
-    useEffect(() => {
+export default function Weather(props: Props) {
+    const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
+    const city = `${props.city},jp`;
+    console.log(city);
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&lang=ja&units=metric&appid=${apiKey}`;
+
       const fetchItems = async () => {
         try {
           const response = await axios.get(url);
@@ -42,7 +46,6 @@ export default function Weather() {
       }
 
       fetchItems()
-    },[url])
 
     return (
         <>

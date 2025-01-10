@@ -19,7 +19,7 @@ export default function PackingPage() {
                     <FontAwesomeIcon icon={faGear} className={styles.FontA} />
                 </div>
                 <div className={styles.scheduleWrap}>
-                    <Schedule plase='札幌市' day='12/31' lowtemperature='-1°' maxtemperature='8°' weatherNum={1}/>
+                    <Schedule plase='Osaka' day='12/31' weatherNum={1}/>
                 </div>
                 <div className={styles.PackingWrap}>
                     <IconBox bagRefs={[bag1Ref, bag2Ref]} />
@@ -41,7 +41,7 @@ export default function PackingPage() {
                     </div>
                 </div>
                 <div className={styles.BtnWrap}>
-                    <Btn label="パッング完了" />
+                    <Btn label="パッキング完了" />
                 </div>
             </div>
         </div>
