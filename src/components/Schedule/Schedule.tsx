@@ -29,23 +29,17 @@ export default function Schedule(props:ScheduleProps) {
     },[date.forecast])
 
         const weatherChoice = () => {
-            // if (date.forecast?.list[3].weather[0].main === 'Clear') {
-            //     setWeather("/img/sunny.svg");
-            // }
-            // if (date.forecast?.list[14].weather[0].main === 'Clouds') {
-            //     setWeather("/img/cloudy.svg");
-            // }
-            // if (date.forecast?.list[0].weather[0].main === 'Rain') {
-            //     setWeather("/img/rain.svg");
-            // }
+            if (date.forecast?.list[3].weather[0].main === 'Clear') {
+                setWeather("/img/sunny.png");
+            }
+            if (date.forecast?.list[14].weather[0].main === 'Clouds') {
+                setWeather("/img/cloudy.png");
+            }
+            if (date.forecast?.list[0].weather[0].main === 'Rain') {
+                setWeather("/img/rain.png");
+            }
             if (date.forecast?.list[3].weather[0].main === 'Snow') {
                 setWeather('/img/snow.png')
-            }
-            if (props.weatherNum === 4) {
-                setWeather("/img/cloudythansunny.svg");
-            }
-            if (props.weatherNum=== 5) {
-                setWeather("/img/cloudythenrain.svg");
             }
         }
 
