@@ -4,7 +4,7 @@
     background-image: url(/public/bg.svg);
 }
 
-.elementBox{
+.elementBox {
     width: 95%;
     margin: 0 auto;
     display: flex;
@@ -32,8 +32,8 @@
         width: 32px;
         height: 32px;
         font-size: 3.2rem;
-        color: #F9A195;
-    }    
+        color: #f9a195;
+    }
 }
 
 .scheduleWrap {
@@ -60,13 +60,13 @@
     justify-content: space-around;
     flex-direction: column;
 }
-.bagsBox > img {
-    transform: scale(.8);
+.bagsBox img {
+    transform: scale(0.8);
     z-index: 0;
-    transition: all .5s;
+    transition: all 0.5s;
 }
 
-.BtnWrap{
+.BtnWrap {
     display: flex;
     justify-content: center;
     align-items: center;
