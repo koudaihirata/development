@@ -190,13 +190,17 @@
 
 .modalGenreText {
     p {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
     > input {
         border: none;
         border-bottom: 1px solid #84521d;
         outline: none;
         border-radius: 0;
+
+        &:focus {
+            touch-action: manipulation;
+        }
     }
 }
 
