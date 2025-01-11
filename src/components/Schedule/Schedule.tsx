@@ -12,11 +12,6 @@ interface DailyWeather {
 }
 
 export default function Schedule(props: { plase: string }) {
-    // const date = useForecast(props.plase);
-    // const [cityName, setCityName] = useState<string | undefined>("");
-    // const [fiveDays, setFiveDays] = useState<
-    //     { date: string;}[]
-    // >([]);
     const [fiveDaysWithIcon, setFiveDaysWithIcon] = useState<
         Array<DailyWeather>
     >([]);
@@ -60,16 +55,18 @@ export default function Schedule(props: { plase: string }) {
             {fiveDaysWithIcon.map((dayInfo, i) => (
                 <div key={dayInfo.date} className={styles.rect}>
                     <div className={styles.rect2}>
-                        <div className={styles.rainImg}>
-                            <img src={weatherAddress[i]} alt="雨" />
-                        </div>
-                        <div className={styles.temperatureWrap}>
-                            <p className={styles.temperature1}>
-                                {dayInfo.minTemp}°
-                            </p>
-                            <p className={styles.temperature2}>
-                                {dayInfo.maxTemp}°
-                            </p>
+                        <div className={styles.WeatherWrap}>
+                            <div className={styles.rainImg}>
+                                <img src={weatherAddress[i]} alt="雨" />
+                            </div>
+                            <div className={styles.temperatureWrap}>
+                                <p className={styles.temperature1}>
+                                    {dayInfo.minTemp}°
+                                </p>
+                                <p className={styles.temperature2}>
+                                    {dayInfo.maxTemp}°
+                                </p>
+                            </div>
                         </div>
                         <div className={styles.container}>
                             <p className={styles.prefecture}>

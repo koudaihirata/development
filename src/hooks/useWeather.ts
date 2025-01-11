@@ -8,11 +8,6 @@ interface UseForecastReturn {
   loading: boolean;
 }
 
-/**
- * 天気予報データを取得するカスタムフック
- * @param city - 都市名
- * @returns 予報データ、エラー、ロード状態
- */
 const useForecast = (city: string): UseForecastReturn => {
   const [forecast, setForecast] = useState<WeatherForecast | null>(null);
   const [error, setError] = useState<Error | null>(null);

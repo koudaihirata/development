@@ -19,17 +19,17 @@ export function shapeDailyForecast(forecastObj: any) {
         dailyMap[dateStr] = {
         originalDate: dateStr,
         date: japaneseDate,
-        minTemp: item.main.temp_min,
-        maxTemp: item.main.temp_max,
+        minTemp: Math.floor(item.main.temp_min),
+        maxTemp: Math.floor(item.main.temp_max),
         weather: item.weather[0]?.main || '',
         };
     } else {
         // 既にある場合は、最高/最低気温を更新
         if (item.main.temp_min < dailyMap[dateStr].minTemp) {
-        dailyMap[dateStr].minTemp = item.main.temp_min;
+        dailyMap[dateStr].minTemp = Math.floor(item.main.temp_min);
         }
         if (item.main.temp_max > dailyMap[dateStr].maxTemp) {
-        dailyMap[dateStr].maxTemp = item.main.temp_max;
+        dailyMap[dateStr].maxTemp = Math.floor(item.main.temp_max);
         }
         // 12:00があれば優先して天気を上書きするロジック 
         if (item.dt_txt.includes('12:00:00')) {
