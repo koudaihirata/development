@@ -1,56 +1,82 @@
-import { useEffect, useState } from 'react';
-import styles from './styles.module.css'
+import { useEffect, useState } from "react";
+import styles from "./styles.module.css";
+import useForecast from "../../hooks/useWeather";
+import { shapeDailyForecast } from "../../utils/shapeDailyForecast";
 
-interface ScheduleProps{
-    plase:string;
-    day:string;
-    lowtemperature:string;
-    maxtemperature:string;
-    weatherNum: Number;
+interface DailyWeather {
+    originalDate: string; // "2025-01-10" (ソート用)
+    date: string; // "1月10日"  (表示用)
+    minTemp: number;
+    maxTemp: number;
+    weather: string; // "Clear" | "Clouds" | "Rain" | "Snow" など
 }
 
-
-export default function Schedule(props:ScheduleProps) {
-    const [ weather, setWeather ] = useState<string>("");
+export default function Schedule(props: { plase: string }) {
+    const [fiveDaysWithIcon, setFiveDaysWithIcon] = useState<
+        Array<DailyWeather>
+    >([]);
+    const { forecast } = useForecast(props.plase);
+    const [weatherAddress, setWeatherAddress] = useState<string[]>([]);
 
     useEffect(() => {
-        const weatherChoice = () => {
-            if (props.weatherNum === 1) {
-                setWeather("/img/sunny.svg");
-            }
-            if (props.weatherNum === 2) {
-                setWeather("/img/cloudy.svg");
-            }
-            if (props.weatherNum === 3) {
-                setWeather("/img/rain.svg");
-            }
-            if (props.weatherNum === 4) {
-                setWeather("/img/cloudythansunny.svg");
-            }
-            if (props.weatherNum=== 5) {
-                setWeather("/img/cloudythenrain.svg");
-            }
-        }
-        weatherChoice();
-    }, []);
+        if (!forecast) return;
+        // まず 3時間刻みデータを「日付ごと」に整形
+        const shapedArray = shapeDailyForecast(forecast);
+        // 各日の "weather"(例: "Clear", "Clouds" など) を取り出す配列
+        const withWeather = shapedArray.map((day) => day.weather);
+        // 天気の情報を元に画像のリンクを返す関数を使用
+        const iconPaths = getWeatherPath(withWeather);
 
-    return(
-        <> 
-        <div className={styles.rect}>
-            <div className={styles.rect2}>
-                <div className={styles.rainImg}>
-                    <img src={weather} alt="雨" />
+        // Stateに保存(5日分全部のデータが扱える)
+        setFiveDaysWithIcon(shapedArray);
+        setWeatherAddress(iconPaths);
+    }, [forecast]);
+
+    function getWeatherPath(mainWeather: string[]): string[] {
+        // map で各要素に応じたパスを返す
+        return mainWeather.map((weather) => {
+            switch (weather) {
+                case "Clear":
+                    return "/img/clear.png";
+                case "Clouds":
+                    return "/img/cloudy.png";
+                case "Rain":
+                    return "/img/rain.png";
+                case "Snow":
+                    return "/img/snow.png";
+                default:
+                    return "/img/other.png";
+            }
+        });
+    }
+
+    return (
+        <>
+            {fiveDaysWithIcon.map((dayInfo, i) => (
+                <div key={dayInfo.date} className={styles.rect}>
+                    <div className={styles.rect2}>
+                        <div className={styles.WeatherWrap}>
+                            <div className={styles.rainImg}>
+                                <img src={weatherAddress[i]} alt="雨" />
+                            </div>
+                            <div className={styles.temperatureWrap}>
+                                <p className={styles.temperature1}>
+                                    {dayInfo.minTemp}°
+                                </p>
+                                <p className={styles.temperature2}>
+                                    {dayInfo.maxTemp}°
+                                </p>
+                            </div>
+                        </div>
+                        <div className={styles.container}>
+                            <p className={styles.prefecture}>
+                                {forecast?.city.name}
+                            </p>
+                            <p className={styles.date}>{dayInfo.date}</p>
+                        </div>
+                    </div>
                 </div>
-                <div className={styles.temperatureWrap}>
-                    <p className={styles.temperature1}>{props.lowtemperature}</p>
-                    <p className={styles.temperature2}>{props.maxtemperature}</p>
-                </div>
-                <div className={styles.container}>
-                    <p className={styles.prefecture}>{props.plase}</p>
-                    <p className={styles.date}>{props.day}</p>
-                </div>
-            </div>
-        </div>
+            ))}
         </>
-    )
+    );
 }
