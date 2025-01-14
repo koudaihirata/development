@@ -37,7 +37,7 @@ export default function Schedule(props: { plase: string }) {
         return mainWeather.map((weather) => {
             switch (weather) {
                 case "Clear":
-                    return "/img/clear.png";
+                    return "/img/sunny.png";
                 case "Clouds":
                     return "/img/cloudy.png";
                 case "Rain":
