@@ -68,28 +68,6 @@
             text-align: center;
         }
     }
-    .bagThing {
-        width: 100%;
-        border-bottom: 1px solid #ffc862;
-
-        > div {
-            width: 80%;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            .ProductName {
-                font-size: 1.6rem;
-                margin: 0;
-            }
-            .Quantity {
-                font-size: 1.4rem;
-                margin: 0;
-                color: #333;
-            }
-        }
-    }
 }
 
 .nullWrap {
@@ -102,5 +80,97 @@
     .null {
         font-size: 1.6rem;
         margin: 0;
+    }
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    .dialog {
+        position: fixed;
+        width: 85%;
+        height: 85%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        box-shadow: 0 0.5rem 0.5rem #000;
+        border: #ffc862 1rem solid;
+        border-radius: 50px;
+
+        .dialogNab {
+            width: 85%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            p {
+                font-size: 1.8rem;
+            }
+        }
+        .dialogTitle {
+            width: 85%;
+            margin: 0 auto;
+            border-bottom: 1px solid #000;
+
+            .dialogImg {
+                width: 72px;
+                height: 72px;
+                margin: 0 auto;
+                border-radius: 12px;
+                background-color: #fffee9;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+            p {
+                margin: 24px 0;
+                font-size: 2.5rem;
+                text-align: center;
+            }
+        }
+        .dialogMain {
+            width: 85%;
+            margin: 0 auto;
+
+            .bagThing {
+                width: 100%;
+                border-bottom: 1px solid #ffc862;
+
+                > div {
+                    width: 80%;
+                    margin: 0 auto;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    .ProductName {
+                        font-size: 1.6rem;
+                        margin: 0;
+                    }
+                    .Quantity {
+                        font-size: 1.4rem;
+                        margin: 0;
+                        color: #333;
+                    }
+                }
+            }
+        }
+        .dialogBtn {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 48px;
+        }
     }
 }
