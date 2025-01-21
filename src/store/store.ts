@@ -10,3 +10,5 @@ export const store = configureStore({
 // store の型を定義
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+
+export * from "./iconsSlice";
