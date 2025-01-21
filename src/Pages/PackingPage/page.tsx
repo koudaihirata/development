@@ -1,15 +1,25 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styles from "./styles.module.css";
-import { faGear } from "@fortawesome/free-solid-svg-icons";
 import Schedule from "../../components/Schedule/Schedule";
 import IconBox from "../../components/Iconbox/iconbox";
 import Btn from "../../components/Btn/Btn";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState, selectBagCount } from "../../store/store";
 
 export default function PackingPage() {
     const bag1Ref = useRef<HTMLImageElement>(null);
     const bag2Ref = useRef<HTMLImageElement>(null);
+
+    const bag1Count = useSelector((state: RootState) =>
+        selectBagCount(state, 1)
+    );
+    const bag2Count = useSelector((state: RootState) =>
+        selectBagCount(state, 2)
+    );
+
+    const bag1ForImg = Math.min(bag1Count, 6);
+    const bag2ForImg = Math.min(bag2Count, 10);
 
     return (
         <div className={styles.bg}>
@@ -31,14 +41,14 @@ export default function PackingPage() {
                         <Link to={"/bag/1"}>
                             <img
                                 ref={bag1Ref}
-                                src="/img/bag1.svg"
+                                src={`/img/bag1-${bag1ForImg}.svg`}
                                 alt="カバン"
                             />
                         </Link>
                         <Link to={"/bag/2"}>
                             <img
                                 ref={bag2Ref}
-                                src="/img/bag2.svg"
+                                src={`/img/bag2-${bag2ForImg}.svg`}
                                 alt="カバン"
                             />
                         </Link>

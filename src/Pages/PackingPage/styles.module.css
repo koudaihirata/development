@@ -60,11 +60,14 @@
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-}
-.bagsBox img {
-    transform: scale(0.8);
-    z-index: 0;
-    transition: all 0.5s;
+
+    img {
+        width: 10rem;
+        position: relative;
+        transform: scale(0.8);
+        z-index: 1;
+        transition: all 0.5s;
+    }
 }
 
 .BtnWrap {
