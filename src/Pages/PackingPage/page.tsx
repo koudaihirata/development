@@ -19,7 +19,7 @@ export default function PackingPage() {
     );
 
     const bag1ForImg = Math.min(bag1Count, 6);
-    const bag2ForImg = Math.min(bag2Count, 6);
+    const bag2ForImg = Math.min(bag2Count, 10);
 
     return (
         <div className={styles.bg}>
