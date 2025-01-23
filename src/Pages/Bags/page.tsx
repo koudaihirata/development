@@ -132,7 +132,12 @@ export default function Bags() {
                             ))}
                         </div>
                         <div className={styles.dialogBtn}>
-                            <Btn label="削除" />
+                            <Btn
+                                label="削除"
+                                onClick={() => {
+                                    console.log("aaa");
+                                }}
+                            />
                         </div>
                     </div>
                 </div>
