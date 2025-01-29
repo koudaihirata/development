@@ -30,7 +30,7 @@ export default function PackingPage() {
         } else if (bag2ForImg === 10) {
             setMessage("bag2Full");
         } else {
-            setMessage("null");
+            setMessage("takeUmbrella");
         }
     }, [bag1ForImg, bag2ForImg]);
 

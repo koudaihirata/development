@@ -1,13 +1,23 @@
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 interface BtnProps {
     label: string;
+    onClick?: () => void;
 }
 
 export default function Btn(props: BtnProps) {
-    return(
+    return (
         <>
-            <button className={styles.button}>{props.label}</button>
+            <button
+                className={styles.button}
+                onClick={() => {
+                    if (props.onClick) {
+                        props.onClick();
+                    }
+                }}
+            >
+                {props.label}
+            </button>
         </>
-    )
+    );
 }
