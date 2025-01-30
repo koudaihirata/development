@@ -1,0 +1,197 @@
+.travelWrap{
+    font-family: "A P-OTF Bunkyu Gothic Pr6N",sans-serif;
+    background-color: #FFFAEB;
+    width: 397px;
+    height: 844px;
+    position: relative;
+}
+.title{
+    font-size: 24px;
+    color: #84521D;
+    text-align: center;
+    font-weight: 600;
+    padding-top: 40px;
+}
+.departureWrap{
+    display: flex;
+    gap: 10px;
+}
+.departure{
+    font-size: 16px;
+    color: #84521D;
+    font-weight: 600;
+    padding-top: 50px;
+    padding-right: 30px;
+    padding-left: 40px;
+}
+.prefecturesPhoto{
+    position: absolute;
+    top: 170px;
+    left: 130px;
+}
+.prefectures{
+    font-size: 20px;
+    font-weight: 600;
+    color:#84521D;
+    display: block;
+    width: 226px;
+    height: 48px;
+    background-color: #FFF6E5;
+    border-radius: 61px;
+    border: none;
+    margin-top: 56px;
+    text-align: center;
+}
+.prefectures::placeholder{
+    color: rgba(132, 82, 29, 0.19);
+
+}
+.arrivalWrap{
+    display: flex;
+    gap: 10px;
+    padding-top: 24px;
+}
+.arrival{
+    font-size: 16px;
+    color: #84521D;
+    font-weight: 600;
+    padding-left: 40px;
+    padding-right: 30px;
+}
+.spotPhoto{
+    position: absolute;
+    top: 260px;
+    left: 130px;
+}
+.spot{
+    font-size: 20px;
+    font-weight: 600;
+    color: #84521D;
+    display: block;
+    width: 226px;
+    height: 48px;
+    background-color: #FFF6E5;
+    border-radius: 61px;
+    border: none;
+    margin-top: 8px;
+    text-align: center;
+}
+.spot::placeholder{
+    color: rgba(132, 82, 29, 0.19);
+}
+.traveldayWrap{
+    display: flex;
+    gap: 10px;
+    padding-top: 24px;
+}
+.travelday{
+    font-size: 16px;
+    color: #84521D;
+    font-weight: 600;
+    padding-left: 32px;
+    padding-right: 22px;
+}
+.arrowPhoto{
+    position: absolute;
+    top: 350px;
+    left: 130px;
+}
+.arrow{
+    font-size: 20px;
+    font-weight: 600;
+    color: #84521D;
+    display: block;
+    width: 226px;
+    height: 48px;
+    background-color: #FFF6E5;
+    border-radius: 61px;
+    border: none;
+    margin-top: 8px;
+    text-align: center;
+}
+.arrow::placeholder{
+    color: rgba(132, 82, 29, 0.19);
+}
+.peopleWrap{
+    display: flex;
+    gap: 10px;
+    padding-top: 24px;
+}
+.people{
+    font-size: 16px;
+    color: #84521D;
+    font-weight: 600;
+    padding-left: 40px;
+    padding-right: 30px;
+}
+.peoplecolumnPhoto{
+    position: absolute;
+    top: 440px;
+    left: 135px;
+}
+.peoplecolumn{
+    font-size: 20px;
+    font-weight: 600;
+    color: #84521D;
+    display: block;
+    width: 226px;
+    height: 48px;
+    background-color: #FFF6E5;
+    border-radius: 61px;
+    border: none;
+    margin-top: 8px;
+    text-align: center;
+}
+.peoplecolumn::placeholder{
+    color: rgba(132, 82, 29, 0.19);
+}
+.memoWrap{
+    display: flex;
+    gap: 10px;
+    padding-top: 24px;
+}
+.memo{
+    font-size: 16px;
+    color: #84521D;
+    font-weight: 600;
+    padding-left: 40px;
+    padding-right: 30px;
+}
+.memocolumnPhoto{
+    position: absolute;
+    top: 520px;
+    left: 130px;
+}
+.memocolumn{
+    font-size: 20px;
+    font-weight: 600;
+    color: #84521D;
+    display: block;
+    width: 226px;
+    height: 48px;
+    background-color: #FFF6E5;
+    border-radius: 61px;
+    border: none;
+    margin-top: 8px;
+    text-align: center;
+}
+.memocolumn::placeholder{
+    color: rgba(132, 82, 29, 0.19);
+}
+.decision{
+    display: inline-block;
+    padding:2px 60px;
+    margin-left: 110px;
+    background-color: #FCE7DE;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+    position: absolute;
+    top: 640px;
+}
+.decision:hover{
+    background-color: #F9A195;
+}
