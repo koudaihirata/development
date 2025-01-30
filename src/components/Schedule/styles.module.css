@@ -1,0 +1,70 @@
+.rect {
+    width: 150px;
+    height: 98px;
+    border: #ffc87c 1px solid;
+    border-radius: 10px;
+    /* margin-top: 30px; */
+    background-color: #fff;
+}
+.rect2 {
+    width: 136px;
+    height: 85px;
+    border: #ffc87c 0.5px solid;
+    border-radius: 10px;
+    margin: 5px 7px;
+    position: relative;
+
+    .WeatherWrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        .rainImg {
+            img {
+                width: 64px;
+            }
+        }
+        .temperatureWrap {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: -0.5rem;
+
+            p {
+                font-size: 1.6rem;
+            }
+            .temperature1 {
+                color: #008dc4;
+                font-size: 1.2rem;
+                font-family: "A P-OTF Antique AN+ ProN", sans-serif;
+            }
+            .temperature2 {
+                color: #ff563f;
+                font-size: 1.2rem;
+                font-family: "A P-OTF Antique AN+ ProN", sans-serif;
+            }
+        }
+    }
+    .container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 30px;
+        left: 5px;
+
+        .prefecture {
+            color: #84521d;
+            font-size: 1.5rem;
+            font-family: "A P-OTF A1Gothic Std", sans-serif;
+            padding-right: 15px;
+            padding-left: 10px;
+            border-right: #ff8c27 1px dotted;
+        }
+        .date {
+            color: #84521d;
+            font-size: 1.2rem;
+            font-family: "A P-OTF A1Gothic Std", sans-serif;
+            margin: 0 auto;
+        }
+    }
+}
