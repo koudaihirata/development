@@ -40,10 +40,14 @@ export default function PackingPage() {
                 <div className={styles.navWrap}>
                     <div>
                         {message === "null" && (
-                            <img src="/img/house.png" alt="リスの家" />
+                            <Link to={"/list"}>
+                                <img src="/img/house.png" alt="リスの家" />
+                            </Link>
                         )}
                         {message !== "null" && (
-                            <img src="/img/houseOut.png" alt="リスの家" />
+                            <Link to={"/list"}>
+                                <img src="/img/houseOut.png" alt="リスの家" />
+                            </Link>
                         )}
                     </div>
                     {message === "takeUmbrella" && (
@@ -74,7 +78,7 @@ export default function PackingPage() {
                     </h2>
                 </div>
                 <div className={styles.scheduleWrap}>
-                    <Schedule plase="Osaka" />
+                    <Schedule plase="Hokkaido" />
                 </div>
                 <div className={styles.PackingWrap}>
                     <IconBox bagRefs={[bag1Ref, bag2Ref]} />
@@ -96,7 +100,9 @@ export default function PackingPage() {
                     </div>
                 </div>
                 <div className={styles.BtnWrap}>
-                    <Btn label="パッキング完了" />
+                    <Link to={"/list?packing=ok"}>
+                        <Btn label="パッキング完了" />
+                    </Link>
                 </div>
             </div>
         </div>
